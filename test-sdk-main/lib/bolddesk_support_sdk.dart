@@ -122,6 +122,10 @@ class BoldDeskSupportSDK {
     );
   }
 
+  static Future<bool> openTicketDetailsView(int ticketId) {
+    return BolddeskSupportSdkPlatform.instance.openTicketDetailsView(ticketId);
+  }
+
   static Future<void> openRecentTickets() {
     return BolddeskSupportSdkPlatform.instance.openRecentTickets();
   }

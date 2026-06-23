@@ -211,6 +211,14 @@ class MethodChannelBolddeskSupportSdk extends BolddeskSupportSdkPlatform {
   }
 
   @override
+  Future<bool> openTicketDetailsView(int ticketId) async {
+    final result = await methodChannel.invokeMethod<bool>('openTicketDetailsView', {
+      'ticketId': ticketId,
+    });
+    return result ?? true;
+  }
+
+  @override
   Future<void> openRecentTickets() async {
     await methodChannel.invokeMethod('openRecentTickets');
   }

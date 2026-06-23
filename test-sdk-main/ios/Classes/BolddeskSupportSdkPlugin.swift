@@ -183,6 +183,12 @@ public class BolddeskSupportSdkPlugin: NSObject, FlutterPlugin {
           )
       }
       result(nil)
+    case "openTicketDetailsView":
+      if let args = call.arguments as? [String: Any],
+        let ticketId = args["ticketId"] as? Int {
+          BDSupportSDK.openTicketDetailsView(ticketId: ticketId)
+        }
+      result(nil)
     default:
       result(FlutterMethodNotImplemented)
     }

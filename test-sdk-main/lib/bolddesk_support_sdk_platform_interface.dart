@@ -148,6 +148,10 @@ abstract class BolddeskSupportSdkPlatform extends PlatformInterface {
     );
   }
 
+  Future<bool> openTicketDetailsView(int ticketId) async {
+    throw UnimplementedError('openTicketDetailsView() has not been implemented.');
+  }
+
   Future<void> openRecentTickets() {
     throw UnimplementedError('openRecentTickets() has not been implemented.');
   }

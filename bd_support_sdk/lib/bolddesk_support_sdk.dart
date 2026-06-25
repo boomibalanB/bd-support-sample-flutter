@@ -122,12 +122,12 @@ class BoldDeskSupportSDK {
     );
   }
 
-  static Future<bool> openTicketDetailsView(int ticketId) {
-    return BolddeskSupportSdkPlatform.instance.openTicketDetailsView(ticketId);
-  }
-
   static Future<void> openRecentTickets() {
     return BolddeskSupportSdkPlatform.instance.openRecentTickets();
+  }
+
+  static Future<void> openTicketDetailsView(int ticketId) {
+    return BolddeskSupportSdkPlatform.instance.openTicketDetailsView(ticketId);
   }
 }
 
@@ -144,6 +144,7 @@ class BoldDeskSDKHome {
     String? ticketTitle,
     String? ticketDescription,
     String? submitButtonText,
+    String? appBarTitle,
   }) {
     return BolddeskSupportSdkPlatform.instance.setHomeDashboardContent(
       headerName: headerName,
@@ -153,6 +154,7 @@ class BoldDeskSDKHome {
       ticketTitle: ticketTitle,
       ticketDescription: ticketDescription,
       submitButtonText: submitButtonText,
+      appBarTitle: appBarTitle
     );
   }
 }

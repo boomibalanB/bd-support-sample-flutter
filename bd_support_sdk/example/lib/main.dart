@@ -231,6 +231,7 @@ class _MyAppState extends State<MyApp> {
                     ticketTitle: "Custom Ticket Title",
                     ticketDescription: "This is custom Ticket description",
                     submitButtonText: "Send Now",
+                    appBarTitle: "Flutter AppBar Title"
                   );
                 },
                 child: Text("set custom content"),

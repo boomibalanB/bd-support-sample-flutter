@@ -138,6 +138,7 @@ class BolddeskSupportSdkPlugin : FlutterPlugin, MethodCallHandler {
                  val kbTitle = call.argument<String>("kbTitle") ?: ""
                   val headerDescription = call.argument<String>("headerDescription") ?: ""
                    val headerName = call.argument<String>("headerName") ?: ""
+                    val appBarTitle = call.argument<String>("appBarTitle") ?: ""
 
             BoldDeskSDKHome.setHomeDashboardContent(
                  headerName,
@@ -146,7 +147,8 @@ class BolddeskSupportSdkPlugin : FlutterPlugin, MethodCallHandler {
                  kbDescription,
                  ticketTitle,
                  ticketDescription,
-                 submitButtonText,  
+                 submitButtonText,
+                 appBarTitle,  
             )
             result.success("Content set Successfully")
         } else if( call.method == "isLoggedIn"){
@@ -164,6 +166,10 @@ class BolddeskSupportSdkPlugin : FlutterPlugin, MethodCallHandler {
             val articleSlugTitle = call.argument<String>("articleSlugTitle") ?: ""
             BoldDeskSupportSDK.openArticleDetailsPage(context, articleId, articleSlugTitle)
             result.success("opened Article View Successfully")
+        } else if (call.method == "openTicketDetailsView") {
+            val ticketId = call.argument<Int>("ticketId") ?: 0
+            BoldDeskSupportSDK.openTicketDetailsView(context, ticketId)
+            result.success("opened Ticket Details View Successfully")
         } else if (call.method == "openRecentTickets") {
             BoldDeskSupportSDK.openRecentTickets(context)
             result.success("Opened RecentTickets Successfully")

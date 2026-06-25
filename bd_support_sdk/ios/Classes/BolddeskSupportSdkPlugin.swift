@@ -156,21 +156,27 @@ public class BolddeskSupportSdkPlugin: NSObject, FlutterPlugin {
             result(false) // return false if no arguments
        }
     case "setHomeDashboardContent":
-      guard let args = call.arguments as? [String: Any],
-        let headerName = args["headerName"] as? String,
-        let headerDescription = args["headerDescription"] as? String,
-        let kbTitle = args["kbTitle"] as? String,
-        let kbDescription = args["kbDescription"] as? String,
-        let ticketTitle = args["ticketTitle"] as? String,
-        let ticketDescription = args["ticketDescription"] as? String,
-        let submitButtonText = args["submitButtonText"] as? String
-      else {
-        return
-      }
+      // All parameters are optional. If a value isn't provided from Dart, pass nil to the SDK.
+      let args = call.arguments as? [String: Any]
+      let headerName = args?["headerName"] as? String
+      let headerDescription = args?["headerDescription"] as? String
+      let kbTitle = args?["kbTitle"] as? String
+      let kbDescription = args?["kbDescription"] as? String
+      let ticketTitle = args?["ticketTitle"] as? String
+      let ticketDescription = args?["ticketDescription"] as? String
+      let submitButtonText = args?["submitButtonText"] as? String
+      let appBarTitle = args?["appBarTitle"] as? String
+
       BDSDKHome.setHomeDashboardContent(
-        headerName: headerName, headerDescription: headerDescription, kbTitle: kbTitle,
-        kbDescription: kbDescription, ticketTitle: ticketTitle, ticketDescription: ticketDescription,
-        submitButtonText: submitButtonText)
+        headerName: headerName,
+        headerDescription: headerDescription,
+        kbTitle: kbTitle,
+        kbDescription: kbDescription,
+        ticketTitle: ticketTitle,
+        ticketDescription: ticketDescription,
+        submitButtonText: submitButtonText,
+        appBarTitle: appBarTitle
+      )
       result(nil)
     case "openArticleDetailsPage":
       if let args = call.arguments as? [String: Any],
@@ -185,7 +191,7 @@ public class BolddeskSupportSdkPlugin: NSObject, FlutterPlugin {
       result(nil)
     case "openTicketDetailsView":
       if let args = call.arguments as? [String: Any],
-        let ticketId = args["ticketId"] as? Int {
+          let ticketId = args["ticketId"] as? Int {
           BDSupportSDK.openTicketDetailsView(ticketId: ticketId)
         }
       result(nil)

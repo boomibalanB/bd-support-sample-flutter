@@ -1,6 +1,6 @@
 name: bd_support_sdk
 description: "The SDK provides easy access to help your app end users"
-version: 2.0.2
+version: 2.0.3
 homepage: https://gitea.syncfusion.com/bold-desk/bolddesk-mobile-sdk-app/src/branch/BolddeskSupportSDKFlutter/bolddesk-sdk-flutter/bd_support_sdk
 environment:
   sdk: ^3.7.2
